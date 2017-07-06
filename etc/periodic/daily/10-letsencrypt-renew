@@ -1,0 +1,8 @@
+#!/bin/sh
+
+echo "Running certbot renew on "$(date)
+
+certbot renew --noninteractive \
+  --webroot --webroot-path /usr/share/nginx/acme \
+  --preferred-challenges http \
+  --post-hook "nginx -s reload"
